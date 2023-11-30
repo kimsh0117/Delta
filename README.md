@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+### Important
+Create `.env.local` file in root directory.
+Create variable `NEXT_PUBLIC_RAWG_KEY` and put your `rawg secret key`
+
+
+run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Описание Тестовое задание
 
-## Learn More
+Требуется реализовать web-приложение - “витрину” игр наподобие [https://rawg.io/](https://rawg.io/) или [https://web.archive.org/web/20180831053229/https://gamegid.online/](https://web.archive.org/web/20180831053229/https://gamegid.online/) на базе API [https://rawg.io/apidocs](https://rawg.io/apidocs).
 
-To learn more about Next.js, take a look at the following resources:
+Приложение будет состоять из двух страниц:
+- / - главная, каталог игр:
+  - Необходимый функционал
+      - Пагинация (в идеале, бесконечный скролл)
+      - Сортировка по: рейтингу и дате релиза игры (в обе стороны)
+      - Фильтрация по платформам
+      - Поиск по названию
+  - Содержимое каждой “плитки” игры:
+      - Название
+      - Постер
+      - Рейтинг
+      - Дата релиза
+  - /game/[slug] - страница игры, на которую можно попасть, кликнув на плитку игры в каталоге, должна содержать более полную информацию об игре (помимо имевшейся на плитке):
+      - Описание
+      - Ссылка на сайт игры
+      - Слайдер со скриншотами игры
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+`Требования`:
+- Реализация на React
+- Код на ES6 (без TypeScript)
+- Реализация в виде SSR-приложения на Next.js
+- Вёрстка с использованием styled components
+- Адаптивная mobile-first вёрстка
+- Вёрстка с нуля без использования UI-библиотек типа MaterialUI (нам важнее оценить, как вы верстаете с нуля, чем итоговые “рюшки” и красота)

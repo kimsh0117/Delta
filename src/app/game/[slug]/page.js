@@ -2,29 +2,30 @@
 import { dehydrate, Hydrate } from '@tanstack/react-query'
 import getQueryClient from '@/lib/getQueryClient'
 // apis
-import { platformsApi } from '@/features/platforms/api'
 import { gamesApi } from '@/features/games/api'
 // ui
-import Main from '@/scenes/main'
+import Page from '@/scenes/game/[slug]'
 
-const Home = async () => {
+const GameDetail = async ({ params }) => {
   const queryClient = getQueryClient()
+
   await queryClient.prefetchQuery({
-    queryKey: ['getPlatforms'],
-    queryFn: platformsApi.getPlatforms,
+    queryKey: ['getGameDetail', params],
+    queryFn: () => gamesApi.getGameDetail(params),
   })
 
   await queryClient.prefetchQuery({
-    queryKey: ['getGames'],
-    queryFn: gamesApi.getGames,
+    queryKey: ['getGameScreenshots', params],
+    queryFn: () => gamesApi.getGameScreenshots(params),
   })
 
   const dehydratedState = dehydrate(queryClient)
+
   return (
     <Hydrate state={dehydratedState}>
-      <Main />
+      <Page slug={params.slug} />
     </Hydrate>
   )
 }
 
-export default Home
+export default GameDetail
