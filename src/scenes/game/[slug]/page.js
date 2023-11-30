@@ -33,6 +33,14 @@ const Page = ({ slug }) => {
     <Layout>
       <Styled.Container>
         <Styled.Title>{details.name}</Styled.Title>
+        <Styled.Link
+          target='_blank'
+          href={details.website}
+          rel='noreferrer'
+          aria-label={details.website}
+        >
+          {details.website}
+        </Styled.Link>
         <Styled.Subtitle>{details.description_raw}</Styled.Subtitle>
 
         <Styled.ScreenshotsContainer

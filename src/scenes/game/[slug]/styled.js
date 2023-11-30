@@ -69,3 +69,5 @@ export const Bullet = styled.div`
   border-radius: 50px;
   margin: 0 4px;
 `
+
+export const Link = styled.a``
